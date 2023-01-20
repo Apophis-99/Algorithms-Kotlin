@@ -1,21 +1,22 @@
 package sorting
-fun quickSort(list: IntArray): IntArray {
 
-    fun partition(list: IntArray, pivot: Int): Pair<IntArray, IntArray> {
-        val lt: MutableList<Int> = IntArray(0).toMutableList()
-        val gt: MutableList<Int> = IntArray(0).toMutableList()
+fun <T: Comparable<T>> quickSort(list: Array<T>): Array<T> {
+
+    fun <T: Comparable<T>> partition(list: Array<T>, pivot: T): Pair<Array<T>, Array<T>> {
+        var lt: Array<T> = list.copyOfRange(0, 0)
+        var gt: Array<T> = list.copyOfRange(0, 0)
 
         for (i in list.indices) {
             if (list[i] < pivot)
-                lt.add(list[i])
+                lt = lt.plus(list[i])
             if (list[i] > pivot)
-                gt.add(list[i])
+                gt = gt.plus(list[i])
         }
 
-        return Pair(lt.toIntArray(), gt.toIntArray())
+        return Pair(lt, gt)
     }
 
-    fun sortSmallArray(arr: IntArray): IntArray {
+    fun sortSmallArray(arr: Array<T>): Array<T> {
         if (arr.size == 2) {
             if (arr[0] > arr[1]) {
                 val temp = arr[0]

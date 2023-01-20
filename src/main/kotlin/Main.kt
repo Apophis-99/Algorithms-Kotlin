@@ -1,13 +1,17 @@
-import bst.IntBST
-import prims.Graph
-import searching.binarySearch
+import sorting.insertionSort
 import kotlin.random.Random
 
 fun main() {
-    val bst = IntBST(50, 10, 13, 14, 3, 9, 27, 2)
+
+    var nums = (1..100).map { Random.nextInt(0, 100) }.toTypedArray()
+
+    printArray(nums)
+    nums = insertionSort(nums)
+    printArray(nums)
+
 }
 
-fun printList(arr: IntArray) {
+fun <T> printArray(arr: Array<T>) {
     print("[ ")
     arr.forEachIndexed { i, it -> print(it); if (i != arr.size - 1) print(", ") }
     println(" ]")

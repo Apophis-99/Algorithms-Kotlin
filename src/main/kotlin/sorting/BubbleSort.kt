@@ -1,9 +1,7 @@
 package sorting
 
-import printList
-
-fun bubbleSort(list: IntArray): IntArray {
-    val arr: IntArray = list
+fun <T: Comparable<T>> bubbleSort(list: Array<T>): Array<T> {
+    val arr: Array<T> = list
 
     var swapsCount = 1
     while (swapsCount > 0) {
@@ -16,7 +14,6 @@ fun bubbleSort(list: IntArray): IntArray {
                 swapsCount++
             }
         }
-        printList(arr)
     }
     return arr
 }
